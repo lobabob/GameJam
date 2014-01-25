@@ -8,8 +8,8 @@ public class Main {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
 		cfg.title = "the-hub";
 		cfg.useGL20 = true;
-		cfg.width = 480;
-		cfg.height = 320;
+		cfg.width = 1000;
+		cfg.height = 562;
 		
 		new LwjglApplication(new Driver(), cfg);
 	}
