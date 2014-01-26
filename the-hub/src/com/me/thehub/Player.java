@@ -55,9 +55,9 @@ public class Player {
 	public boolean canShoot = true;
 
 	// switches for ability unlocks
-	private boolean doubleJumpUnlocked = true;
+	private boolean doubleJumpUnlocked = false;
 	public boolean gunUnlocked = true;
-	private boolean bikeUnlocked = true;
+	private boolean bikeUnlocked = false;
 
 	public Player()
 	{
@@ -110,12 +110,12 @@ public class Player {
 		/***********************/
 
 		Texture spriteSheet_Gun = new Texture(Gdx.files.internal("spritesheets/player_gun.png"));
-		tmp = TextureRegion.split(spriteSheet_Gun, spriteSheet_Gun.getWidth()/6, spriteSheet_Gun.getHeight()/3);
+		tmp = TextureRegion.split(spriteSheet_Gun, spriteSheet_Gun.getWidth()/6, spriteSheet_Gun.getHeight()/4);
 
 		// walking animation
 		walkFrames = new TextureRegion[4];
 		for(int i = 0; i < 4; i++) {
-			walkFrames[i] = tmp[1][i];
+			walkFrames[i] = tmp[3][i];
 		}
 		walk_gun = new Animation(0.25f, walkFrames);
 
@@ -126,7 +126,7 @@ public class Player {
 		jump_gun = new Animation(0.20f, jumpFrames);
 
 		// idle image
-		idle_gun = tmp[0][0];
+		idle_gun = tmp[0][5];
 
 		/*****************************/
 		/******* bigger gun :D *******/
@@ -174,8 +174,12 @@ public class Player {
 		bounds.set(x, y, W, H);
 	}
 
-	public Bullet shoot() {
-		return new Bullet(x + W/2, y + H/2, dir);
+	public Bullet shoot() 
+	{
+		// pistol position
+		if(gunUnlocked && !bikeUnlocked) return new Bullet(x + dir.x * 3 * W/4, y + 2*H/3 + 3, dir);
+		// bike position
+		else return new Bullet(x + dir.x * 5 * W/4, y + H/2, dir);
 	}
 
 	/****************************************************/
@@ -398,5 +402,13 @@ public class Player {
 		//player.draw(batch);
 		batch.draw(currentFrame, x - 53, y - 2);
 
+	}
+
+	public void preventFall() {
+		if(vel.y < 0)
+			vel.y = 0;
+		canJump = true;
+		if(doubleJumpUnlocked)
+			numJumps = 2;
 	}
 }

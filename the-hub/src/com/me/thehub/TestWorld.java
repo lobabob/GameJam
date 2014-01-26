@@ -30,6 +30,8 @@ public class TestWorld extends AbstractLevel {
 	
 	// entities
 	private Boss1 boss;
+	private Boss2 boss2;
+	private Boss3 boss3;
 
 	public TestWorld(Player player, SpriteBatch batch) 
 	{		
@@ -59,7 +61,9 @@ public class TestWorld extends AbstractLevel {
 		sr = new ShapeRenderer();
 		/*****DEBUG***/
 		
-		boss = new Boss1(128, 32);
+		boss = new Boss1(300, (collision.getHeight() - 15) * collision.getTileHeight());
+		boss2 = new Boss2(600, (int) ((collision.getHeight() - 15) * collision.getTileHeight()));
+		boss3 = new Boss3(600, (int) ((collision.getHeight() - 15) * collision.getTileHeight()));
 	}
 
 	public Screens checkTriggers()
@@ -76,6 +80,15 @@ public class TestWorld extends AbstractLevel {
 	{
 		updateCamera();
 		spawnPlayerBullets();
+		
+		if(Intersector.overlaps(player.bounds, boss.platform)) {
+			player.preventFall();
+		}
+		
+		for(int i = 0; i < boss3.platforms.length; i++) {
+			if(Intersector.overlaps(player.bounds, boss3.platforms[i]))
+				player.preventFall();
+		}
 	}
 
 	@Override
@@ -97,6 +110,7 @@ public class TestWorld extends AbstractLevel {
 		for(Bullet b: bullets)
 			b.draw(batch);
 		boss.draw(batch);
+		boss2.draw(batch);
 
 		batch.end();
 
@@ -105,6 +119,10 @@ public class TestWorld extends AbstractLevel {
 		sr.setColor(1, 1, 1, 1);
 		sr.begin(ShapeType.Filled);
 		sr.rect(level2.x, level2.y, level2.width, level2.height);
+		sr.rect(boss2.hurtbox.x, boss2.hurtbox.y, boss2.hurtbox.width, boss2.hurtbox.height);
+		sr.rect(boss2.hitbox.x, boss2.hitbox.y, boss2.hitbox.width, boss2.hitbox.height);
+		//sr.rect(boss.platform.x, boss.platform.y, boss.platform.width, boss.platform.height);
+		boss3.draw(sr, batch);
 		sr.end();
 		/*****DEBUG****/
 		
@@ -115,7 +133,7 @@ public class TestWorld extends AbstractLevel {
 	public void show() { 
 		if(!loaded) {
 			player.setCollision(collision);
-			player.setStart(32, 32, new Vector2(1, 0));
+			player.setStart(500, (collision.getHeight() - 15) * collision.getTileHeight(), new Vector2(1, 0));
 			loaded = true;
 		}
 		render(Gdx.graphics.getDeltaTime()); 
