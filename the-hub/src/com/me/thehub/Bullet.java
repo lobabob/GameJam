@@ -19,7 +19,7 @@ public class Bullet {
 	public float y;
 	
 	// constants
-	private static final int SPEED = 1500;
+	private static final int SPEED = 1100;
 	private static final int SIZE = 8;
 	
 	public Bullet(float x, float y, Vector2 dir)

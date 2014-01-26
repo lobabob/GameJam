@@ -7,25 +7,47 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Driver implements ApplicationListener {
-	
+
+	public enum Screens { MENU, LEVEL1, LEVEL2 };
+
 	private Screen test;
+	private Screen test2;
 	private SpriteBatch batch;
-	
+	private Player player;
+
+	private Screens currentScreen;
+
 	@Override
 	public void create() 
 	{	
 		batch = new SpriteBatch();
-		test = new TestWorld(batch);
+		player = new Player();
+		test = new TestWorld(player, batch);
+		test2 = new TestWorld2(player, batch);
+
+		currentScreen = Screens.LEVEL1;
 	}
 
 	@Override
-	public void render() {		
+	public void render() 
+	{		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
-		test.show();
+
+		switch(currentScreen)
+		{
+		case LEVEL1:
+			test.show();
+			currentScreen = ((TestWorld) test).checkTriggers();
+			break;
+		case LEVEL2:
+			test2.show();
+			break;
+		default:
+			break;
+		}
 	}
-	
+
 	@Override
 	public void dispose() {
 		test.dispose();

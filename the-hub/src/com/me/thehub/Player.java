@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 
 
 public class Player {
@@ -42,32 +41,38 @@ public class Player {
 	
 	// switches for ability unlocks
 	private boolean doubleJumpUnlocked = true;
-	private boolean rollUnlocked = false;
 	public boolean gunUnlocked = true;
 	private boolean bikeUnlocked = false;
 
-	public Player(int x, int y, TiledMapTileLayer collision)
+	public Player()
 	{
 		input = new PlayerInputProcessor();
-		this.collision = collision;
-		this.x = x;
-		this.y = y;
 
 		// create player sprite
 		Texture playerTex = new Texture(Gdx.files.internal("entities/player.png"));
 		TextureRegion playerIMG = new TextureRegion(playerTex, 279, 283);
 		player = new Sprite(playerIMG);
 		player.setSize(W, H);
-
-		// place player in level facing right
-		player.setPosition(x, y);
+		bounds = new Rectangle();
+		
+		// immobilize
 		vel = new Vector2(0, 0);
-		dir = new Vector2(1, 0);
-
-		// set collision data
+	}
+	
+	public void setCollision(TiledMapTileLayer collision) {
+		this.collision = collision;
 		tileWidth = collision.getTileWidth();
 		tileHeight = collision.getTileHeight();
-		bounds = new Rectangle(x, y, W, H);
+	}
+	
+	// set player starting position and direction in a level
+	public void setStart(float x, float y, Vector2 dir)
+	{
+		player.setPosition(x, y);
+		this.x = x;
+		this.y = y;
+		this.dir = dir;
+		bounds.set(x, y, W, H);
 	}
 	
 	public Bullet shoot() {
@@ -220,6 +225,7 @@ public class Player {
 		checkWorldCollisions(delta);
 		x = player.getX();
 		y = player.getY();
+		bounds.setPosition(x, y);
 	}
 
 	public void draw(SpriteBatch batch)
