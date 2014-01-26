@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.me.thehub.screens.Menu;
 
 public class Driver implements ApplicationListener {
 
@@ -16,6 +17,7 @@ public class Driver implements ApplicationListener {
 	public enum Screens { MENU, LEVEL1, LEVEL2 };
 	private Screen test;
 	private Screen test2;
+	private Screen menu;
 	
 	// the player
 	private Player player;
@@ -28,10 +30,11 @@ public class Driver implements ApplicationListener {
 	{	
 		batch = new SpriteBatch();
 		player = new Player();
+		menu = new Menu();
 		test = new TestWorld(player, batch);
 		test2 = new TestWorld2(player, batch);
 
-		currentScreen = Screens.LEVEL1;
+		currentScreen = Screens.MENU;
 	}
 
 	@Override
@@ -42,6 +45,10 @@ public class Driver implements ApplicationListener {
 
 		switch(currentScreen)
 		{
+		case MENU:
+			menu.show();
+			currentScreen = ((Menu) menu).getGameState();
+			break;
 		case LEVEL1:
 			test.show();
 			currentScreen = ((TestWorld) test).checkTriggers();
