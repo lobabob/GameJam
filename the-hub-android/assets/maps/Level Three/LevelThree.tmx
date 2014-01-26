@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="wormhole" tilewidth="32" tileheight="32">
-  <image source="../../Dev/wormhole.jpg" width="800" height="600"/>
+  <image source="wormhole.jpg" width="800" height="600"/>
   <tile id="262">
    <properties>
     <property name="Blocked" value=""/>

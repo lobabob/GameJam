@@ -19,7 +19,7 @@ import com.me.thehub.Driver.Screens;
 public class TestWorld extends AbstractLevel {
 
 	// which layers to render
-	private int[] layer1 = {0, 1};
+	private int[] layer1 = {0};
 	
 	// level triggers
 	public Rectangle level2;
@@ -43,9 +43,9 @@ public class TestWorld extends AbstractLevel {
 
 		// load map and collision layer
 		TmxMapLoader load = new TmxMapLoader();
-		map = load.load("maps/testroom/testroom.tmx");
+		map = load.load("maps/LevelTwo/LevelTwo.tmx");
 		tmr = new OrthogonalTiledMapRenderer(map);
-		collision = (TiledMapTileLayer)map.getLayers().get(1);
+		collision = (TiledMapTileLayer)map.getLayers().get(0);
 
 		// load entities
 		this.player = player;

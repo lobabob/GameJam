@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="red" tilewidth="32" tileheight="32">
+  <image source="../../Dev/red.jpg" width="1278" height="990"/>
+ </tileset>
+ <tileset firstgid="1171" name="mzeHKpJlGydFETjtjK7wQ3Q" tilewidth="32" tileheight="32">
+  <image source="../../Dev/mzeHKpJlGydFETjtjK7wQ3Q.jpg" width="225" height="224"/>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1220" name="27491ff9a" tilewidth="32" tileheight="32">
+  <image source="../../Dev/27491ff9a.jpg" width="570" height="356"/>
+ </tileset>
+ <tileset firstgid="1407" name="Digital_World_by_Angelo975" tilewidth="32" tileheight="32">
+  <image source="../../Dev/Digital_World_by_Angelo975.png" width="1280" height="1024"/>
+  <tile id="141">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt1lOTHVEYBdBO0j3RTSY2JrbNiW3btp38uti2bdvrpf/D7brnYVV9D6d21X46O1cURbkCczWOomtc5wY3ucVt7nCXe9znAQ95xGOecCXORkba95n7OS94ySte84a3vOM9H/jIJz7zha88jbORkfb97v7BT37xmz/85R9REkVlKEs5YhKKKM+3OBsZad+K3laiMjmqUJViqlGdGtSkFrWpQ13qUSHJRkbat4G7IY1oTBOaUkIzmtOClrSiNW1oSzvqJ9nISPt2cHekE53pQle60Z0e9KQXvelDX/rRn/ZJNjLSvgPdgxhMKUMYyjCGM4KRjGI0YxjLOMYzIMlGRtp3onsSk5nCVKYxnRnMZBazmcNc5jGfBUxIspGR9l3kXswSlrKM5axgJatYzRrWso71bGAjC5NsZKR9N7u3sJVtbGcHO9nFbvawl33s5wAHOcSmJBsZad8j/qajHOM4JzjJKU5zhrOc4zwXuMglLnM4zkZG2JP5uwXDngx7MuzJsCfDnszPLRj2ZNiTYU+GPRn2ZH5uwbAnw54MezLsyULck4XkPydBMDg=
+  </data>
+ </layer>
+</map>
