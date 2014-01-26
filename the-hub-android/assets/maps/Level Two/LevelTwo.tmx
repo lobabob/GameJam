@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="metallic_gold_1_1" tilewidth="32" tileheight="32">
+  <image source="../../Dev/metallic_gold_1_1.jpg" trans="ff00ff" width="3200" height="2128"/>
+ </tileset>
+ <tileset firstgid="6601" name="castlevania_level_2" tilewidth="32" tileheight="32">
+  <image source="../../Dev/castlevania_level_2.png" trans="ff00ff" width="2048" height="816"/>
+  <tile id="263">
+   <properties>
+    <property name="Blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="657">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="723">
+   <properties>
+    <property name="Blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="783">
+   <properties>
+    <property name="Blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="1137">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="1182">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="8201" name="castlevania_level_1" tilewidth="32" tileheight="32">
+  <image source="../../Dev/castlevania_level_1.png" width="3584" height="432"/>
+  <tile id="406">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="508">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="509">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="620">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="9657" name="arab-tiles" tilewidth="32" tileheight="32">
+  <image source="../../Dev/arab-tiles.png" width="979" height="435"/>
+ </tileset>
+ <tileset firstgid="10047" name="Myxa 2" tilewidth="32" tileheight="32">
+  <image source="../../Dev/Myxa 2.png" width="1426" height="717"/>
+  <tile id="92">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="231">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="232">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="353">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="363">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="364">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="397">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="515">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="536">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="537">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="580">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="581">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+  <tile id="638">
+   <properties>
+    <property name="dmg" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="11015" name="559809_582140125131474_695720691_n" tilewidth="32" tileheight="32">
+  <image source="../../Dev/559809_582140125131474_695720691_n.jpg" width="635" height="800"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+</map>
