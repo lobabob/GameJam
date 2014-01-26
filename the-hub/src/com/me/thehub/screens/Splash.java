@@ -103,8 +103,10 @@ public class Splash implements Screen {
 						table.add(line7).left();
 					else if(lineToPrint == 8)
 						table.add(line8).left();
-					else if(lineToPrint == 9)
+					else if(lineToPrint == 9) {
 						table.add(line9).left();
+						typing.stop(typing_id);
+					}
 					
 					table.row();
 					lineToPrint++;
@@ -112,7 +114,6 @@ public class Splash implements Screen {
 				}
 			} else
 				if(timeSinceCollision > 1f) {
-					typing.stop(typing_id);
 					splashOver = true;
 				}
 		}
