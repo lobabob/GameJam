@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Driver implements ApplicationListener {
-
+	
 	private Screen test;
 	private SpriteBatch batch;
 	
