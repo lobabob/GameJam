@@ -4,16 +4,22 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Driver implements ApplicationListener {
 
+	// rendering tools
+	private SpriteBatch batch;
+	
+	// screens
 	public enum Screens { MENU, LEVEL1, LEVEL2 };
-
 	private Screen test;
 	private Screen test2;
-	private SpriteBatch batch;
+	
+	// the player
 	private Player player;
+	
 
 	private Screens currentScreen;
 
