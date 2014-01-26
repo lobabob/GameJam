@@ -27,6 +27,9 @@ public class TestWorld extends AbstractLevel {
 	/*****DEBUG****/
 	private ShapeRenderer sr;
 	/*****DEBUG****/
+	
+	// entities
+	private Boss1 boss;
 
 	public TestWorld(Player player, SpriteBatch batch) 
 	{		
@@ -55,6 +58,8 @@ public class TestWorld extends AbstractLevel {
 		/****DEBUG****/
 		sr = new ShapeRenderer();
 		/*****DEBUG***/
+		
+		boss = new Boss1(128, 32);
 	}
 
 	public Screens checkTriggers()
@@ -91,6 +96,7 @@ public class TestWorld extends AbstractLevel {
 		player.draw(batch);	
 		for(Bullet b: bullets)
 			b.draw(batch);
+		boss.draw(batch);
 
 		batch.end();
 

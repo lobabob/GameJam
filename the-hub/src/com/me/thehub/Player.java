@@ -57,7 +57,7 @@ public class Player {
 	// switches for ability unlocks
 	private boolean doubleJumpUnlocked = true;
 	public boolean gunUnlocked = true;
-	private boolean bikeUnlocked = false;
+	private boolean bikeUnlocked = true;
 
 	public Player()
 	{
