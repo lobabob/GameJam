@@ -1,4 +1,4 @@
-package com.me.thehub;
+package com.me.thehub.screens;
 
 import com.badlogic.gdx.Screen;
 
