@@ -33,12 +33,15 @@ public class Bullet {
 		bullet = new Sprite(bulletTex);
 		bullet.setPosition(x, y);
 		bullet.setSize(SIZE, SIZE);
+		
+		bounds = new Rectangle(x, y, SIZE, SIZE);
 	}
 	
 	private void update(float delta)
 	{
 		x += vel.x * delta;
 		bullet.setX(x);
+		bounds.setX(x);
 	}
 	
 	public void draw(SpriteBatch batch)
