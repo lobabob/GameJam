@@ -1,8 +1,8 @@
-package com.me.thehub;
+package com.me.thehub.screens;
 
 import com.badlogic.gdx.Screen;
 
-public class Menu implements Screen {
+public class Credits implements Screen {
 
 	@Override
 	public void render(float delta) {
