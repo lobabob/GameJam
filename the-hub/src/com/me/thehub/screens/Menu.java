@@ -2,6 +2,7 @@ package com.me.thehub.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -22,6 +23,9 @@ public class Menu implements Screen {
 	private boolean goToPlay = false;		// Flag that monitors game state
 	private boolean goToCredits = false;		// Flag that monitors game state
 	
+	private Sound menuMusic;
+	private long menuMusic_id;
+	
 	private Stage stage;
 	private TextureAtlas atlas;
 	private Skin skin;
@@ -30,28 +34,11 @@ public class Menu implements Screen {
 	private BitmapFont titleFont, buttonFont, hackerFont;
 	private Label title;
 	
-	
-	@Override
-	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		stage.act(delta);
-		stage.draw();
-	}
-
-	@Override
-	public void resize(int width, int height) {
-		stage.setViewport(width, height, true);
-		table.setSize(width, height);
-		table.invalidateHierarchy();
-		
-	}
-
-	@Override
-	public void show() {
+	public Menu() {
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
+		menuMusic = Gdx.audio.newSound(Gdx.files.internal("sounds/Finished Tracks/Menu_Credits.wav"));
+		menuMusic_id = menuMusic.loop();
 		
 		atlas = new TextureAtlas("ui/button.pack");
 		skin = new Skin(atlas);
@@ -83,18 +70,21 @@ public class Menu implements Screen {
 		buttonPlay.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				goToPlay = true;
+				menuMusic.stop(menuMusic_id);
+				goToPlay = true;				
 			}
 		});
 		buttonCredits.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				menuMusic.stop(menuMusic_id);
 				goToCredits = true;
 			}
 		});
 		buttonExit.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				menuMusic.stop(menuMusic_id);
 				Gdx.app.exit();
 			}
 		});
@@ -120,6 +110,28 @@ public class Menu implements Screen {
 		
 		table.row();
 		table.add(buttonExit);
+	}
+	
+	@Override
+	public void render(float delta) {
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		Gdx.input.setInputProcessor(stage);
+		
+		stage.act(delta);
+		stage.draw();
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		stage.setViewport(width, height, true);
+		table.setSize(width, height);
+		table.invalidateHierarchy();
+	}
+
+	@Override
+	public void show() {
+		render(Gdx.graphics.getDeltaTime());
 	}
 
 	@Override

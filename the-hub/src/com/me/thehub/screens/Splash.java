@@ -1,7 +1,9 @@
 package com.me.thehub.screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -20,11 +22,44 @@ public class Splash implements Screen {
 	private BitmapFont hackerFont;
 	private Label line1, line2, line3, line4, line5, line6, line7, line8, line9;
 	
+	private Sound typing;
+	private long typing_id;
+	
 	private String line1_command = "./game_of_awesome";
 	private boolean doneTyping = false;
 	private float timeSinceCollision = 0;
 	private int lineToPrint = 2;
 	private int commandChar = 0;	// Starting at 0 instead of 1 gives a slight pause before the animation starts
+	
+	public Splash() {
+		stage = new Stage();
+		Gdx.input.setInputProcessor(stage);
+		typing = Gdx.audio.newSound(Gdx.files.internal("sounds/Sound Effects/Typing.wav"));
+		typing_id = typing.loop();
+		
+		table = new Table();
+		table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		
+		// Creating fonts
+		hackerFont = new BitmapFont(Gdx.files.internal("fonts/console.fnt"), false);	
+		
+		// Creating Splash loading screen
+		line1 = new Label("root@thehub:~# ", new LabelStyle(hackerFont, Color.GREEN));
+		line2 = new Label("Unpacking platforms....", new LabelStyle(hackerFont, Color.GREEN));
+		line3 = new Label("Polishing weapons....", new LabelStyle(hackerFont, Color.GREEN));
+		line4 = new Label("Setting up baddies....", new LabelStyle(hackerFont, Color.GREEN));
+		line5 = new Label("Taking a nap....", new LabelStyle(hackerFont, Color.GREEN));
+		line6 = new Label("Resuming....", new LabelStyle(hackerFont, Color.GREEN));
+		line7 = new Label("Browsing /hidden/dead_end/school/porn....", new LabelStyle(hackerFont, Color.GREEN));
+		line8 = new Label("Cleaning up....", new LabelStyle(hackerFont, Color.GREEN));
+		line9 = new Label("Starting game....", new LabelStyle(hackerFont, Color.GREEN));
+		
+		// Adding things together
+		stage.addActor(table);
+		
+		table.left().top();
+		table.add(line1).left();
+	}
 	
 	@Override
 	public void render(float delta) {
@@ -44,6 +79,7 @@ public class Splash implements Screen {
 					table.add(line1).left();
 					commandChar++;
 				} else {
+					
 					table.row();
 					doneTyping = true;
 				}
@@ -76,8 +112,11 @@ public class Splash implements Screen {
 					timeSinceCollision = 0f;
 				}
 			} else
-				if(timeSinceCollision > 1f)
+				if(timeSinceCollision > 1f) {
+					typing.stop(typing_id);
 					splashOver = true;
+					//thisgame.setScreen(new Menu());
+				}
 		}
 	}
 
@@ -91,31 +130,7 @@ public class Splash implements Screen {
 
 	@Override
 	public void show() {
-		stage = new Stage();
-		Gdx.input.setInputProcessor(stage);
-		
-		table = new Table();
-		table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		
-		// Creating fonts
-		hackerFont = new BitmapFont(Gdx.files.internal("fonts/console.fnt"), false);	
-		
-		// Creating Splash loading screen
-		line1 = new Label("root@thehub:~# ", new LabelStyle(hackerFont, Color.GREEN));
-		line2 = new Label("Unpacking platforms....", new LabelStyle(hackerFont, Color.GREEN));
-		line3 = new Label("Polishing weapons....", new LabelStyle(hackerFont, Color.GREEN));
-		line4 = new Label("Setting up baddies....", new LabelStyle(hackerFont, Color.GREEN));
-		line5 = new Label("Taking a nap....", new LabelStyle(hackerFont, Color.GREEN));
-		line6 = new Label("Resuming....", new LabelStyle(hackerFont, Color.GREEN));
-		line7 = new Label("Browsing /hidden/dead_end/school/porn....", new LabelStyle(hackerFont, Color.GREEN));
-		line8 = new Label("Cleaning up....", new LabelStyle(hackerFont, Color.GREEN));
-		line9 = new Label("Starting game....", new LabelStyle(hackerFont, Color.GREEN));
-		
-		// Adding things together
-		stage.addActor(table);
-		
-		table.left().top();
-		table.add(line1).left();
+		render(Gdx.graphics.getDeltaTime());
 	}
 
 	@Override
