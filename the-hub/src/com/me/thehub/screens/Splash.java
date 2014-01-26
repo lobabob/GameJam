@@ -1,6 +1,5 @@
 package com.me.thehub.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
@@ -115,7 +114,6 @@ public class Splash implements Screen {
 				if(timeSinceCollision > 1f) {
 					typing.stop(typing_id);
 					splashOver = true;
-					//thisgame.setScreen(new Menu());
 				}
 		}
 	}
@@ -125,7 +123,6 @@ public class Splash implements Screen {
 		stage.setViewport(width, height, true);
 		table.setSize(width, height);
 		table.invalidateHierarchy();
-		
 	}
 
 	@Override
@@ -155,8 +152,10 @@ public class Splash implements Screen {
 	}
 	
 	public Screens getState() {
-		if(splashOver)
+		if(splashOver) {
+			splashOver = false;
 			return Screens.MENU;
+		}
 		return Screens.SPLASH;
 	}
 

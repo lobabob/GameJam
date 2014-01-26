@@ -37,8 +37,6 @@ public class Menu implements Screen {
 	public Menu() {
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
-		menuMusic = Gdx.audio.newSound(Gdx.files.internal("sounds/Finished Tracks/Menu_Credits.wav"));
-		menuMusic_id = menuMusic.loop();
 		
 		atlas = new TextureAtlas("ui/button.pack");
 		skin = new Skin(atlas);
@@ -70,14 +68,12 @@ public class Menu implements Screen {
 		buttonPlay.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				menuMusic.stop(menuMusic_id);
 				goToPlay = true;				
 			}
 		});
 		buttonCredits.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				menuMusic.stop(menuMusic_id);
 				goToCredits = true;
 			}
 		});
@@ -118,6 +114,8 @@ public class Menu implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		Gdx.input.setInputProcessor(stage);
 		
+		menuMusic.resume(menuMusic_id);
+		
 		stage.act(delta);
 		stage.draw();
 	}
@@ -131,6 +129,8 @@ public class Menu implements Screen {
 
 	@Override
 	public void show() {
+		menuMusic = Gdx.audio.newSound(Gdx.files.internal("sounds/Finished Tracks/Menu_Credits.wav"));
+		menuMusic_id = menuMusic.loop();
 		render(Gdx.graphics.getDeltaTime());
 	}
 
@@ -161,10 +161,15 @@ public class Menu implements Screen {
 	}
 	
 	public Screens getState() {
-		if(goToPlay)
+		if(goToPlay) {
+			goToPlay = false;
+			menuMusic.pause(menuMusic_id);
 			return Screens.LEVEL1;
-		if(goToCredits)
+		} else if(goToCredits) {
+			menuMusic.pause(menuMusic_id);
+			goToCredits = false;
 			return Screens.CREDITS;
+		}
 		return Screens.MENU;
 	}
 

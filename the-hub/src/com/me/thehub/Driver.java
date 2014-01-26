@@ -1,7 +1,6 @@
 package com.me.thehub;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
@@ -29,7 +28,6 @@ public class Driver implements ApplicationListener {
 	
 
 	private Screens currentScreen;
-	private Screens oldScreen;
 
 	@Override
 	public void create() 
@@ -37,8 +35,6 @@ public class Driver implements ApplicationListener {
 		batch = new SpriteBatch();
 		player = new Player();
 		splash = new Splash();
-		menu = new Menu();
-		credits = new Credits();
 		test = new TestWorld(player, batch);
 		test2 = new TestWorld2(player, batch);
 
@@ -59,10 +55,18 @@ public class Driver implements ApplicationListener {
 			currentScreen = ((Splash) splash).getState();
 			break;
 		case MENU:
+			if(menu == null) {
+				menu = new Menu();
+				menu.show();
+			}
 			menu.render(Gdx.graphics.getDeltaTime());
 			currentScreen = ((Menu) menu).getState();
 			break;
 		case CREDITS:
+			if(credits == null) {
+				credits = new Credits(batch);
+				credits.show();
+			}
 			credits.render(Gdx.graphics.getDeltaTime());
 			currentScreen = ((Credits) credits).getState();
 			break;
