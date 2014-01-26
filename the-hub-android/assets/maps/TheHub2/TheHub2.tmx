@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="peaceful_and_cold_by_qauz-d5uoida" tilewidth="32" tileheight="32">
-  <image source="../../Dev/peaceful_and_cold_by_qauz-d5uoida.jpg" width="1280" height="800"/>
+  <image source="peaceful_and_cold_by_qauz-d5uoida.jpg" width="1280" height="800"/>
  </tileset>
  <tileset firstgid="1001" name="peaceful_night_by_mikayuu-d2ygg3w" tilewidth="32" tileheight="32">
-  <image source="../../Dev/peaceful_night_by_mikayuu-d2ygg3w.jpg" width="3508" height="2480"/>
+  <image source="peaceful_night_by_mikayuu-d2ygg3w.jpg" width="3508" height="2480"/>
  </tileset>
  <tileset firstgid="9394" name="bright_and_peaceful_by_qauz-d66f10c" tilewidth="32" tileheight="32">
-  <image source="../../Dev/bright_and_peaceful_by_qauz-d66f10c.jpg" width="1280" height="800"/>
+  <image source="bright_and_peaceful_by_qauz-d66f10c.jpg" width="1280" height="800"/>
  </tileset>
  <tileset firstgid="10394" name="Digital_World_by_Angelo975" tilewidth="32" tileheight="32">
-  <image source="../../Dev/Digital_World_by_Angelo975.png" width="1280" height="1024"/>
+  <image source="Digital_World_by_Angelo975.png" width="1280" height="1024"/>
   <tile id="1240">
    <properties>
     <property name="blocked" value=""/>
@@ -38,7 +38,7 @@
   </tile>
  </tileset>
  <tileset firstgid="11674" name="image_3" tilewidth="32" tileheight="32">
-  <image source="../../Dev/image_3.png" width="485" height="609"/>
+  <image source="image_3.png" width="485" height="609"/>
   <tile id="41">
    <properties>
     <property name="blocked" value=""/>
@@ -121,7 +121,7 @@
   </tile>
  </tileset>
  <tileset firstgid="11959" name="TheHub2;)" tilewidth="32" tileheight="32">
-  <image source="../../Dev/TheHub2;).png" width="1920" height="1024"/>
+  <image source="TheHub2;).png" width="1920" height="1024"/>
   <tile id="0">
    <properties>
     <property name="blocked" value=""/>
@@ -879,7 +879,7 @@
   </tile>
  </tileset>
  <tileset firstgid="13879" name="tile" tilewidth="32" tileheight="32">
-  <image source="../../Dev/tile.png" width="1284" height="1024"/>
+  <image source="tile.png" width="1284" height="1024"/>
   <tile id="334">
    <properties>
     <property name="blocked" value=""/>
@@ -887,10 +887,10 @@
   </tile>
  </tileset>
  <tileset firstgid="15159" name="aerotiles-desktop" tilewidth="32" tileheight="32">
-  <image source="../../Dev/aerotiles-desktop.jpg" width="615" height="390"/>
+  <image source="aerotiles-desktop.jpg" width="615" height="390"/>
  </tileset>
  <tileset firstgid="15387" name="aerotiles-desktop (1)" tilewidth="32" tileheight="32">
-  <image source="../../Dev/aerotiles-desktop (1).jpg" width="615" height="390"/>
+  <image source="aerotiles-desktop (1).jpg" width="615" height="390"/>
  </tileset>
  <layer name="Tile Layer 1" width="60" height="32">
   <data encoding="base64" compression="zlib">
