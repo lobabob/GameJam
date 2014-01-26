@@ -3,34 +3,23 @@ package com.me.thehub;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 
-public class TestWorld2 implements Screen {
+public class TestWorld2 extends AbstractLevel {
 
-	private SpriteBatch batch;
-	private OrthogonalTiledMapRenderer tmr;
+	// which tiledmap layers to render
 	private int[] layer1 = {0, 1};
-	private OrthographicCamera camera;
 
-	float w, h;
-
-	private Player player;
-	private TiledMap map;
-	private TiledMapTileLayer collision;
-
-	public boolean loaded = false;
-
+	
 	public TestWorld2(Player player, SpriteBatch batch)
 	{
 		this.player = player;
+		bullets = new ArrayList<Bullet>();
 
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
@@ -52,23 +41,8 @@ public class TestWorld2 implements Screen {
 
 	private void update(float delta)
 	{
-		// center camera on player
-		float newX = player.player.getX();
-		float newY = player.player.getY();
-
-		// make sure camera doesn't leave the level
-		if(player.player.getX() < w/2)
-			newX = w/2;
-		else if(player.player.getX() > collision.getWidth() * collision.getTileWidth() - w/2)
-			newX = collision.getWidth() * collision.getTileWidth() - w/2;
-		if(player.player.getY() < h/2)
-			newY = h/2;
-		else if(player.player.getY() > collision.getHeight() * collision.getTileHeight() - h/2)
-			newY = collision.getHeight() * collision.getTileHeight() - h/2;
-
-		// set new camera position
-		camera.position.set(newX, newY, 0);
-		batch.setProjectionMatrix(camera.combined);
+		updateCamera();
+		spawnPlayerBullets();
 	}
 
 	@Override
@@ -84,12 +58,15 @@ public class TestWorld2 implements Screen {
 
 		// draw entities
 		batch.begin();
+		
 		player.draw(batch);	
+		for(Bullet b: bullets)
+			b.draw(batch);
+		
 		batch.end();
+		
+		cleanUp();
 	}
-
-	@Override
-	public void resize(int width, int height) {}
 
 	@Override
 	public void show() { 
@@ -102,6 +79,9 @@ public class TestWorld2 implements Screen {
 	}
 
 	@Override
+	public void resize(int width, int height) {}
+	
+	@Override
 	public void hide() {}
 
 	@Override
@@ -111,9 +91,5 @@ public class TestWorld2 implements Screen {
 	public void resume() {}
 
 	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-
-	}
-
+	public void dispose() {}
 }

@@ -1,16 +1,12 @@
 package com.me.thehub;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -20,30 +16,17 @@ import com.badlogic.gdx.math.Vector2;
 import com.me.thehub.Driver.Screens;
 
 
-public class TestWorld implements Screen {
+public class TestWorld extends AbstractLevel {
 
-	// rendering tools
-	private OrthographicCamera camera;
-	private SpriteBatch batch;
-	private OrthogonalTiledMapRenderer tmr;
+	// which layers to render
 	private int[] layer1 = {0, 1};
-
-	// graphics
-	private ArrayList<Bullet> bullets;
-	private Player player;
-	private TiledMap map;
-	private TiledMapTileLayer collision;
-
-	// game window attributes
-	private float w;
-	private float h;
-	public boolean loaded = false;
 	
 	// level triggers
 	public Rectangle level2;
 	
 	/*****DEBUG****/
 	private ShapeRenderer sr;
+	/*****DEBUG****/
 
 	public TestWorld(Player player, SpriteBatch batch) 
 	{		
@@ -71,6 +54,7 @@ public class TestWorld implements Screen {
 		
 		/****DEBUG****/
 		sr = new ShapeRenderer();
+		/*****DEBUG***/
 	}
 
 	public Screens checkTriggers()
@@ -85,44 +69,8 @@ public class TestWorld implements Screen {
 	
 	private void update(float delta)
 	{
-		// center camera on player
-		float newX = player.x;
-		float newY = player.y;
-
-		// make sure camera doesn't leave the level
-		if(player.player.getX() < w/2)
-			newX = w/2;
-		else if(player.player.getX() > collision.getWidth() * collision.getTileWidth() - w/2)
-			newX = collision.getWidth() * collision.getTileWidth() - w/2;
-		if(player.player.getY() < h/2)
-			newY = h/2;
-		else if(player.player.getY() > collision.getHeight() * collision.getTileHeight() - h/2)
-			newY = collision.getHeight() * collision.getTileHeight() - h/2;
-
-		// set new camera position
-		camera.position.set(newX, newY, 0);
-		batch.setProjectionMatrix(camera.combined);
-
-		// shoot shit (one bullet at a time) if gun is unlocked
-		if(Gdx.input.isKeyPressed(Keys.X) && player.canShoot && player.gunUnlocked) { 
-			bullets.add(player.shoot());
-			player.canShoot = false;
-		}
-		else if(!Gdx.input.isKeyPressed(Keys.X))
-			player.canShoot = true;
-	}
-
-	// get rid of useless objects
-	private void cleanUp()
-	{
-		Bullet b;
-		Iterator<Bullet> it = bullets.iterator();
-		while(it.hasNext())
-		{
-			b = it.next();
-			if(b.x > collision.getTileWidth() * collision.getWidth())
-				it.remove();
-		}
+		updateCamera();
+		spawnPlayerBullets();
 	}
 
 	@Override
@@ -152,6 +100,7 @@ public class TestWorld implements Screen {
 		sr.begin(ShapeType.Filled);
 		sr.rect(level2.x, level2.y, level2.width, level2.height);
 		sr.end();
+		/*****DEBUG****/
 		
 		cleanUp();
 	}
