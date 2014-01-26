@@ -2,6 +2,7 @@ package com.me.thehub;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -17,13 +18,16 @@ public class Player {
 	public Sprite player;
 	private PlayerInputProcessor input;
 
+	// sounds
+	private Sound gun;
+	private Sound bike;
+	
 	// animations
 	private TextureRegion currentFrame;
 	private Animation walk_noWeapon;
 	private Animation jump_noWeapon;
 	private Animation walk_gun;
 	private Animation jump_gun;
-	private Animation shoot_gun;
 	private Animation walk_bike;
 	private Animation jump_bike;
 	private TextureRegion idle_noWeapon;
@@ -55,9 +59,9 @@ public class Player {
 	public boolean canShoot = true;
 
 	// switches for ability unlocks
-	private boolean doubleJumpUnlocked = false;
+	public boolean doubleJumpUnlocked = true;
 	public boolean gunUnlocked = true;
-	private boolean bikeUnlocked = false;
+	public boolean bikeUnlocked = true;
 
 	public Player()
 	{
@@ -72,13 +76,16 @@ public class Player {
 
 		// immobilize
 		vel = new Vector2(0, 0);
+		
+		// load sounds
+		gun = Gdx.audio.newSound(Gdx.files.internal("sounds/Sound Effects/Player/Gunshot.wav"));
+		bike = Gdx.audio.newSound(Gdx.files.internal("sounds/Sound Effects/Player/Laser.wav"));
 
 		/***********************************************/
 		/************* CREATING ANIMATIONS *************/
 		/***********************************************/
 
 		TextureRegion[][] tmp;
-		TextureRegion[] shootFrames;
 		TextureRegion[] walkFrames;
 		TextureRegion[] jumpFrames;
 
@@ -177,9 +184,15 @@ public class Player {
 	public Bullet shoot() 
 	{
 		// pistol position
-		if(gunUnlocked && !bikeUnlocked) return new Bullet(x + dir.x * 3 * W/4, y + 2*H/3 + 3, dir);
+		if(gunUnlocked && !bikeUnlocked) {
+			gun.play(1.0f);
+			return new Bullet(x + dir.x * 3 * W/4, y + 2*H/3 + 3, dir);
+		}
 		// bike position
-		else return new Bullet(x + dir.x * 5 * W/4, y + H/2, dir);
+		else {
+			bike.play(1.0f);
+			return new Bullet(x + dir.x * 5 * W/4, y + H/2, dir);
+		}
 	}
 
 	/****************************************************/
