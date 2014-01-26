@@ -2,6 +2,16 @@
 <map version="1.0" orientation="orthogonal" width="50" height="30" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
   <image source="Untitled.png" width="500" height="500"/>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
   <tile id="75">
    <properties>
     <property name="blocked" value=""/>
@@ -10,12 +20,12 @@
  </tileset>
  <layer name="Tile Layer 1" width="50" height="30">
   <data encoding="base64" compression="zlib">
-   eJztmDsOgCAQBSm8CHoBYm+QCxDvfxqxI4RfYON+tJhKA2/YxSBaKWVf5Ay4xvORcXVgYY4W4mGEeEjpK0kehkAOCA9LIAeEh5S+kuThI7AzjXr4DNi5IOrB0aXmwcml5cHFJeeRnq+p8ORcA1vFA3s9oeqBneOLHrn+4ughpR7cPf7vFR9mPeJa6wKl+6v4nVK/9PbX7H8t5N2b65xzr+QYXQfI89c1MH/sgd3bEBwEMkB5pHu1tW8p8mS+ASyeTe4=
+   eJzlmEsKhDAMhrsY8RzVC6j7wfECXsD732PShRBKOvURzGMWHyJK+39NCtoYQpgf5AMsledXxo3AyzjRicfgxMNLX3nyGBTk4PCYFeTg8PDSV548VoR0pqseK4F0Lo56WHT55WHJpeZhxYXyyL+vNdAQUB7S68lVD+kc/+iR8nZAD4zAZNTDSz2seeD+SfctwpKHl3o86YFrHwuUzq/wO7h/zsy5X+/+13KevS0H5yztj6P/tdS6bTfWIKc21oagPKR7m4O3ggxcHvlere1bjaTMX3onTpU=
   </data>
  </layer>
  <layer name="collision" width="50" height="30" opacity="0.86">
   <data encoding="base64" compression="zlib">
-   eJztlsENACAIAxmQl/sP4wKaaIBIax/3lgMidTNzEgY48uiFPHohj17IoxcsN5HlvrNkFZbcxZIhX+fsrHyO1POTebyu40eP1X4herDMA91D/xUOUY/q+3a6X6gekXns+pC5G7fvV9Qh8ubJwASLUdn+
+   eJzzYWBg8BkmOGiI41F/DC486o/BhUf9MbjwqD8GFx4udeJwqd+HS1tluLS7hksbcqDb2cRiVTSMyx8DHZ7Uio+BdsdI9AdyemOC4qHoj+ESH0PNH8xIGMQfLa+GDqbUH9Su70i1E5buhqI/KM0fA93mSkTC2Nw20Gl7FGPGyXDAAFy41uY=
   </data>
  </layer>
 </map>

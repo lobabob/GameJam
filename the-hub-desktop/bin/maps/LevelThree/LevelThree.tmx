@@ -78,7 +78,7 @@
   </tile>
   <tile id="59">
    <properties>
-    <property name="Blocked" value=""/>
+    <property name="blocked" value=""/>
    </properties>
   </tile>
   <tile id="60">
@@ -256,9 +256,6 @@
     <property name="dmg" value=""/>
    </properties>
   </tile>
- </tileset>
- <tileset firstgid="4671" name="tmw_desert_spacing" tilewidth="32" tileheight="32">
-  <image source="tmw_desert_spacing.png" width="265" height="199"/>
  </tileset>
  <layer name="Tile Layer 1" width="60" height="32">
   <data encoding="base64" compression="zlib">
