@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="8495" tilewidth="32" tileheight="32">
-  <image source="../../Dev/8495.png" width="1340" height="883"/>
+  <image source="8495.png" width="1340" height="883"/>
  </tileset>
  <tileset firstgid="1108" name="castlevania_level_1" tilewidth="32" tileheight="32">
-  <image source="../../Dev/castlevania_level_1.png" width="3584" height="432"/>
+  <image source="castlevania_level_1.png" width="3584" height="432"/>
   <tile id="572">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="597">
@@ -17,7 +17,7 @@
   </tile>
   <tile id="697">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="720">
@@ -27,15 +27,15 @@
   </tile>
   <tile id="1318">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
  </tileset>
  <tileset firstgid="2564" name="castlevania_level_2" tilewidth="32" tileheight="32">
-  <image source="../../Dev/castlevania_level_2.png" width="2048" height="816"/>
+  <image source="castlevania_level_2.png" width="2048" height="816"/>
   <tile id="263">
    <properties>
-    <property name="Blocked" value=""/>
+    <property name="blocked" value=""/>
    </properties>
   </tile>
   <tile id="278">
@@ -45,24 +45,24 @@
   </tile>
  </tileset>
  <tileset firstgid="4164" name="castlevania_level_3" tilewidth="32" tileheight="32">
-  <image source="../../Dev/castlevania_level_3.png" width="3584" height="624"/>
+  <image source="castlevania_level_3.png" width="3584" height="624"/>
  </tileset>
  <tileset firstgid="6292" name="castlevania_level_6" tilewidth="32" tileheight="32">
-  <image source="../../Dev/castlevania_level_6.png" width="3072" height="624"/>
+  <image source="castlevania_level_6.png" width="3072" height="624"/>
  </tileset>
  <tileset firstgid="8116" name="Blue_matrix" tilewidth="60" tileheight="32">
-  <image source="../../Dev/Blue_matrix.jpg" width="1280" height="1024"/>
+  <image source="Blue_matrix.jpg" width="1280" height="1024"/>
  </tileset>
  <tileset firstgid="8788" name="2" tilewidth="32" tileheight="32">
-  <image source="../../Dev/2.jpg" width="1080" height="1920"/>
+  <image source="2.jpg" width="1080" height="1920"/>
   <tile id="51">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="307">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="379">
@@ -73,32 +73,31 @@
   <tile id="412">
    <properties>
     <property name="blocked" value=""/>
-    <property name="transparent " value="true"/>
    </properties>
   </tile>
   <tile id="444">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="445">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="480">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="972">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="1144">
    <properties>
-    <property name="Collidable" value="True"/>
+    <property name="blocked" value="True"/>
    </properties>
   </tile>
   <tile id="1404">
@@ -113,22 +112,22 @@
   </tile>
  </tileset>
  <tileset firstgid="10768" name="pc5-neon" tilewidth="32" tileheight="32">
-  <image source="../../Dev/pc5-neon.jpg" trans="ff00ff" width="600" height="659"/>
+  <image source="pc5-neon.jpg" trans="ff00ff" width="600" height="659"/>
  </tileset>
  <tileset firstgid="11128" name="metallic_royal_blue__1_1" tilewidth="32" tileheight="32">
-  <image source="../../Dev/metallic_royal_blue__1_1.jpg" trans="ff00ff" width="2560" height="1704"/>
+  <image source="metallic_royal_blue__1_1.jpg" trans="ff00ff" width="2560" height="1704"/>
  </tileset>
  <tileset firstgid="15368" name="crinkly-metallic-purple-texture-543735-m" tilewidth="32" tileheight="32">
-  <image source="../../Dev/crinkly-metallic-purple-texture-543735-m.jpg" trans="ff00ff" width="300" height="225"/>
+  <image source="crinkly-metallic-purple-texture-543735-m.jpg" trans="ff00ff" width="300" height="225"/>
  </tileset>
  <tileset firstgid="15431" name="CARVICO-BRISBANE-SMILE_1" tilewidth="32" tileheight="32">
-  <image source="../../Dev/CARVICO-BRISBANE-SMILE_1.jpg" width="350" height="350"/>
+  <image source="CARVICO-BRISBANE-SMILE_1.jpg" width="350" height="350"/>
  </tileset>
  <tileset firstgid="15531" name="backgroundRocks" tilewidth="32" tileheight="32">
-  <image source="../../Dev/backgroundRocks.jpg" width="1280" height="800"/>
+  <image source="backgroundRocks.jpg" width="1280" height="800"/>
  </tileset>
  <tileset firstgid="16531" name="Golden-Colors-Computer-Generated-Pattern-467663" tilewidth="32" tileheight="32">
-  <image source="../../Dev/Golden-Colors-Computer-Generated-Pattern-467663.jpg" width="449" height="449"/>
+  <image source="Golden-Colors-Computer-Generated-Pattern-467663.jpg" width="449" height="449"/>
  </tileset>
  <layer name="Tile Layer 1" width="60" height="32">
   <data encoding="base64" compression="zlib">
