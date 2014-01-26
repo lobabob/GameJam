@@ -4,9 +4,10 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.me.thehub.screens.Credits;
 import com.me.thehub.screens.Menu;
+import com.me.thehub.screens.Splash;
 
 public class Driver implements ApplicationListener {
 
@@ -14,10 +15,13 @@ public class Driver implements ApplicationListener {
 	private SpriteBatch batch;
 	
 	// screens
-	public enum Screens { MENU, LEVEL1, LEVEL2 };
+	public enum Screens { MENU, LEVEL1, LEVEL2, SPLASH, CREDITS };
+	private Screen splash;
+	private Screen menu;
+	private Screen credits;
 	private Screen test;
 	private Screen test2;
-	private Screen menu;
+	
 	
 	// the player
 	private Player player;
@@ -30,11 +34,14 @@ public class Driver implements ApplicationListener {
 	{	
 		batch = new SpriteBatch();
 		player = new Player();
+		splash = new Splash();
 		menu = new Menu();
+		credits = new Credits();
 		test = new TestWorld(player, batch);
 		test2 = new TestWorld2(player, batch);
 
 		currentScreen = Screens.MENU;
+		//splash.show();
 		menu.show();
 	}
 
@@ -46,9 +53,17 @@ public class Driver implements ApplicationListener {
 
 		switch(currentScreen)
 		{
+		case SPLASH:
+			splash.render(Gdx.graphics.getDeltaTime());
+			currentScreen = ((Splash) splash).getState();
+			break;
 		case MENU:
 			menu.render(Gdx.graphics.getDeltaTime());
-			currentScreen = ((Menu) menu).getGameState();
+			currentScreen = ((Menu) menu).getState();
+			break;
+		case CREDITS:
+			credits.render(Gdx.graphics.getDeltaTime());
+			currentScreen = ((Credits) credits).getState();
 			break;
 		case LEVEL1:
 			test.show();

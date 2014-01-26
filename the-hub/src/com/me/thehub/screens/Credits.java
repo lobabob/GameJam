@@ -1,8 +1,11 @@
 package com.me.thehub.screens;
 
 import com.badlogic.gdx.Screen;
+import com.me.thehub.Driver.Screens;
 
 public class Credits implements Screen {
+	
+	private boolean credsDone = false;
 
 	@Override
 	public void render(float delta) {
@@ -44,6 +47,12 @@ public class Credits implements Screen {
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Screens getState() {
+		if(credsDone)
+			return Screens.MENU;
+		return Screens.CREDITS;
 	}
 
 }

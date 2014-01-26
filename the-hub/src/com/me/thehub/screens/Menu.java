@@ -15,12 +15,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.me.thehub.Driver;
 import com.me.thehub.Driver.Screens;
 
 public class Menu implements Screen {
 	
-	private boolean gameStarted = false;		// Flag that monitors game state
+	private boolean goToPlay = false;		// Flag that monitors game state
+	private boolean goToCredits = false;		// Flag that monitors game state
 	
 	private Stage stage;
 	private TextureAtlas atlas;
@@ -28,7 +28,7 @@ public class Menu implements Screen {
 	private Table table;
 	private TextButton buttonPlay, buttonCredits, buttonExit;
 	private BitmapFont titleFont, buttonFont, hackerFont;
-	private Label title, line1, line2, line3, line4, line5, line6, line7, line8, line9;
+	private Label title;
 	
 	
 	@Override
@@ -36,21 +36,21 @@ public class Menu implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		Table.drawDebug(stage);	// Remove this later
-		
 		stage.act(delta);
 		stage.draw();
 	}
 
 	@Override
 	public void resize(int width, int height) {
+		stage.setViewport(width, height, true);
+		table.setSize(width, height);
+		table.invalidateHierarchy();
 		
 	}
 
 	@Override
 	public void show() {
 		stage = new Stage();
-		
 		Gdx.input.setInputProcessor(stage);
 		
 		atlas = new TextureAtlas("ui/button.pack");
@@ -83,14 +83,13 @@ public class Menu implements Screen {
 		buttonPlay.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				gameStarted = true;
+				goToPlay = true;
 			}
 		});
 		buttonCredits.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
-				super.clicked(event, x, y);
+				goToCredits = true;
 			}
 		});
 		buttonExit.addListener(new ClickListener() {
@@ -103,9 +102,11 @@ public class Menu implements Screen {
 		
 		// Creating heading		
 		title = new Label("*The_Hub", new LabelStyle(titleFont, Color.GREEN));
-		title.setFontScale(2.15f);
+		title.setFontScale(2.15f);	
 		
-		// Adding things together		
+		// Adding things together	
+		stage.addActor(table);
+		
 		table.add(title);
 		table.getCell(title).spaceBottom(75);
 		
@@ -119,9 +120,6 @@ public class Menu implements Screen {
 		
 		table.row();
 		table.add(buttonExit);
-		
-		table.debug();		// Remove this later
-		stage.addActor(table);
 	}
 
 	@Override
@@ -150,9 +148,11 @@ public class Menu implements Screen {
 		
 	}
 	
-	public Screens getGameState() {
-		if(gameStarted)
+	public Screens getState() {
+		if(goToPlay)
 			return Screens.LEVEL1;
+		if(goToCredits)
+			return Screens.CREDITS;
 		return Screens.MENU;
 	}
 
