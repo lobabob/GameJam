@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="sound-waces-turquoise-waves-x-abstract-120603" tilewidth="32" tileheight="32">
-  <image source="../../Dev/sound-waces-turquoise-waves-x-abstract-120603.jpg" width="1366" height="768"/>
+  <image source="sound-waces-turquoise-waves-x-abstract-120603.jpg" width="1366" height="768"/>
   <tile id="468">
    <properties>
     <property name="blocked" value=""/>
@@ -24,10 +24,10 @@
   </tile>
  </tileset>
  <tileset firstgid="1009" name="380576" tilewidth="32" tileheight="32">
-  <image source="../../Dev/380576.jpg" width="1920" height="1200"/>
+  <image source="380576.jpg" width="1920" height="1200"/>
  </tileset>
  <tileset firstgid="3229" name="color-background-wallpapers_2560x1600_86344" tilewidth="32" tileheight="32">
-  <image source="../../Dev/color-background-wallpapers_2560x1600_86344.jpg" width="2560" height="1600"/>
+  <image source="color-background-wallpapers_2560x1600_86344.jpg" width="2560" height="1600"/>
  </tileset>
  <layer name="Tile Layer 1" width="60" height="32">
   <data encoding="base64" compression="zlib">

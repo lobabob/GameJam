@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="sound-of-white-194-1" tilewidth="32" tileheight="32">
-  <image source="../../Dev/sound-of-white-194-1.jpg" width="940" height="360"/>
+  <image source="sound-of-white-194-1.jpg" width="940" height="360"/>
  </tileset>
  <tileset firstgid="320" name="mzeHKpJlGydFETjtjK7wQ3Q" tilewidth="32" tileheight="32">
-  <image source="../../Dev/mzeHKpJlGydFETjtjK7wQ3Q.jpg" width="225" height="224"/>
+  <image source="mzeHKpJlGydFETjtjK7wQ3Q.jpg" width="225" height="224"/>
   <tile id="39">
    <properties>
     <property name="blocked" value=""/>

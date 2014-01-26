@@ -4,18 +4,18 @@
   <image source="wormhole.jpg" width="800" height="600"/>
   <tile id="262">
    <properties>
-    <property name="Blocked" value=""/>
+    <property name="blocked" value=""/>
    </properties>
   </tile>
  </tileset>
  <tileset firstgid="451" name="large matrix blu-ray7" tilewidth="32" tileheight="32">
-  <image source="../../Dev/large matrix blu-ray7.jpg" width="1920" height="1080"/>
+  <image source="large matrix blu-ray7.jpg" width="1920" height="1080"/>
  </tileset>
  <tileset firstgid="2431" name="Red-metallic-background-mighty-backgrounds" tilewidth="32" tileheight="32">
-  <image source="../../Dev/Red-metallic-background-mighty-backgrounds.jpg" width="1600" height="1200"/>
+  <image source="Red-metallic-background-mighty-backgrounds.jpg" width="1600" height="1200"/>
  </tileset>
  <tileset firstgid="4281" name="arab-tiles" tilewidth="32" tileheight="32">
-  <image source="../../Dev/arab-tiles.png" width="979" height="435"/>
+  <image source="arab-tiles.png" width="979" height="435"/>
   <tile id="30">
    <properties>
     <property name="blocked" value=""/>
@@ -258,7 +258,7 @@
   </tile>
  </tileset>
  <tileset firstgid="4671" name="tmw_desert_spacing" tilewidth="32" tileheight="32">
-  <image source="../../../../Program Files (x86)/Tiled/examples/tmw_desert_spacing.png" width="265" height="199"/>
+  <image source="tmw_desert_spacing.png" width="265" height="199"/>
  </tileset>
  <layer name="Tile Layer 1" width="60" height="32">
   <data encoding="base64" compression="zlib">
