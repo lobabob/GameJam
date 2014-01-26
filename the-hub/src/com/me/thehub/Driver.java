@@ -35,6 +35,7 @@ public class Driver implements ApplicationListener {
 		test2 = new TestWorld2(player, batch);
 
 		currentScreen = Screens.MENU;
+		menu.show();
 	}
 
 	@Override
@@ -46,7 +47,7 @@ public class Driver implements ApplicationListener {
 		switch(currentScreen)
 		{
 		case MENU:
-			menu.show();
+			menu.render(Gdx.graphics.getDeltaTime());
 			currentScreen = ((Menu) menu).getGameState();
 			break;
 		case LEVEL1:
