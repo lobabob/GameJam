@@ -15,8 +15,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.me.thehub.Driver.Screens;
 
 public class Menu implements Screen {
+	
+	private boolean gameStarted = false;		// Flag that monitors game state
 	
 	private Stage stage;
 	private TextureAtlas atlas;
@@ -79,8 +82,7 @@ public class Menu implements Screen {
 		buttonPlay.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
-				super.clicked(event, x, y);
+				gameStarted = true;
 			}
 		});
 		buttonCredits.addListener(new ClickListener() {
@@ -145,6 +147,12 @@ public class Menu implements Screen {
 		hackerFont.dispose();
 		skin.dispose();
 		
+	}
+	
+	public Screens getGameState() {
+		if(gameStarted)
+			return Screens.LEVEL1;
+		return Screens.MENU;
 	}
 
 }
