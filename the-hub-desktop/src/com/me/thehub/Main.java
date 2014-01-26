@@ -6,7 +6,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 public class Main {
 	public static void main(String[] args) {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = "the-hub";
+		cfg.title = "The Hub";
 		cfg.vSyncEnabled = true;
 		cfg.useGL20 = true;
 		cfg.width = 1000;

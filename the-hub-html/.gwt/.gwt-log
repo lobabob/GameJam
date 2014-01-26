@@ -174,6 +174,7 @@ Compiling...
 Removing invalidated units
 Finding entry point classes
 Public resources found in...
+<<<<<<< HEAD
    [WARN] Error processing classpath URL 'file:/C:/Program Files (x86)/eclipse/plugins/com.google.gdt.eclipse.designer.hosted.2_2_3.1.2.r42x201307151442/gwt-dev-designtime.jar'
 java.net.URISyntaxException: Illegal character in path at index 16: file:/C:/Program Files (x86)/eclipse/plugins/com.google.gdt.eclipse.designer.hosted.2_2_3.1.2.r42x201307151442/gwt-dev-designtime.jar
 	at java.net.URI$Parser.fail(Unknown Source)
@@ -266,6 +267,26 @@ java.net.URISyntaxException: Illegal character in path at index 16: file:/C:/Pro
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
 	at org.eclipse.ui.internal.Workbench$54.run(Workbench.java:2412)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+=======
+Translatable source found in...
+Found 0 cached/archived units.  Used 0 / 2719 units from cache.
+Compiling...
+   20% complete (ETR: 13 seconds)
+   20% complete (ETR: 13 seconds)
+   20% complete (ETR: 15 seconds)
+   30% complete (ETR: 13 seconds)
+   40% complete (ETR: 10 seconds)
+   50% complete (ETR: 7 seconds)
+   60% complete (ETR: 5 seconds)
+   70% complete (ETR: 4 seconds)
+   80% complete (ETR: 2 seconds)
+   90% complete (ETR: 1 seconds)
+   100% complete (ETR: 0 seconds)
+   Compilation completed in 12.19 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+>>>>>>> 68a395caa1024a0eb85de661242e5c66853980d7
 Translatable source found in...
 Found 2719 cached/archived units.  Used 2719 / 2719 units from cache.
 Compiling...
@@ -273,6 +294,7 @@ Compiling...
 Removing invalidated units
 Finding entry point classes
 Public resources found in...
+<<<<<<< HEAD
    [WARN] Error processing classpath URL 'file:/C:/Program Files (x86)/eclipse/plugins/com.google.gdt.eclipse.designer.hosted.2_2_3.1.2.r42x201307151442/gwt-dev-designtime.jar'
 java.net.URISyntaxException: Illegal character in path at index 16: file:/C:/Program Files (x86)/eclipse/plugins/com.google.gdt.eclipse.designer.hosted.2_2_3.1.2.r42x201307151442/gwt-dev-designtime.jar
 	at java.net.URI$Parser.fail(Unknown Source)
@@ -310,6 +332,8 @@ java.net.URISyntaxException: Illegal character in path at index 16: file:/C:/Pro
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
 	at org.eclipse.ui.internal.Workbench$54.run(Workbench.java:2412)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+=======
+>>>>>>> 68a395caa1024a0eb85de661242e5c66853980d7
 Translatable source found in...
 Found 2719 cached/archived units.  Used 2719 / 2719 units from cache.
 Compiling...
