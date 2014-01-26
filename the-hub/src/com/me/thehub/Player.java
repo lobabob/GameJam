@@ -9,11 +9,13 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 
 public class Player {
 
 	public Sprite player;
+	private PlayerInputProcessor input;
 
 	// collision data
 	private TiledMapTileLayer collision;
@@ -21,40 +23,57 @@ public class Player {
 	public Rectangle bounds;
 
 	// constants for player attributes
-	private static final int SPEED = 30000;
-	private static final int JUMP = 35000;
+	private static final float SPEED = 370;
+	private static final int JUMP = 580;
 	private static final float GRAVITY = 1500;
 	private static final int W = 32;
 	private static final int H = 60;
 
 	// movement and position data
 	private Vector2 vel;
-	private boolean canJump = true;
+	private Vector2 dir;
 	public float x;
 	public float y;
+	
+	// switches for possible player actions
+	private boolean canJump = true;
+	private int numJumps = 2;
+	public boolean canShoot = true;
+	
+	// switches for ability unlocks
+	private boolean doubleJumpUnlocked = true;
+	private boolean rollUnlocked = false;
+	public boolean gunUnlocked = true;
+	private boolean bikeUnlocked = false;
 
 	public Player(int x, int y, TiledMapTileLayer collision)
 	{
+		input = new PlayerInputProcessor();
 		this.collision = collision;
 		this.x = x;
 		this.y = y;
 
 		// create player sprite
-		Texture playerTex = new Texture(Gdx.files.internal("test/player.png"));
+		Texture playerTex = new Texture(Gdx.files.internal("entities/player.png"));
 		TextureRegion playerIMG = new TextureRegion(playerTex, 279, 283);
 		player = new Sprite(playerIMG);
 		player.setSize(W, H);
 
-		// place player in level
+		// place player in level facing right
 		player.setPosition(x, y);
 		vel = new Vector2(0, 0);
+		dir = new Vector2(1, 0);
 
 		// set collision data
 		tileWidth = collision.getTileWidth();
 		tileHeight = collision.getTileHeight();
 		bounds = new Rectangle(x, y, W, H);
 	}
-
+	
+	public Bullet shoot() {
+		return new Bullet(x + W/2, y + H/2, dir);
+	}
+	
 	/****************************************************/
 	/******* COLLISION CHECKING, ABANDON ALL HOPE *******/
 	/****************************************************/
@@ -120,13 +139,21 @@ public class Player {
 				collisionY = collision.getCell((int)( (player.getX() + player.getWidth()/2) / tileWidth), 
 						(int)(player.getY() / tileHeight)).getTile().getProperties().containsKey("blocked");
 
-
 			// bottom right
 			if(!collisionY && !collisionX)
 				collisionY = collision.getCell((int)( (player.getX() + player.getWidth()) / tileWidth), 
 						(int)(player.getY() / tileHeight)).getTile().getProperties().containsKey("blocked");
-			if(collisionY)
+			
+			// if we land, restore jumps
+			if(collisionY) {
 				canJump = true;
+				numJumps = 2;
+			}
+			// if we fall off platform, enable one jump if double jump is unlocked
+			else if(numJumps > 0 && doubleJumpUnlocked)
+				numJumps = 1;
+			else
+				numJumps = 0;
 		}
 		else if(vel.y > 0)
 		{
@@ -135,18 +162,20 @@ public class Player {
 				collisionY = collision.getCell((int)( player.getX() / tileWidth), 
 						(int)((player.getY() + player.getHeight()) / tileHeight)).getTile()
 						.getProperties().containsKey("blocked");
+			
 			// top middle
 			if(!collisionY)
 				collisionY = collision.getCell((int)( (player.getX() + player.getWidth()/2) / tileWidth), 
 						(int)((player.getY() + player.getHeight()) / tileHeight)).getTile()
 						.getProperties().containsKey("blocked");
+			
 			// top right
 			if(!collisionY && !collisionX)
 				collisionY = collision.getCell((int)( (player.getX() + player.getWidth()) / tileWidth), 
 						(int)((player.getY() + player.getHeight()) / tileHeight)).getTile()
 						.getProperties().containsKey("blocked");
 		}
-
+		// if collided, restore old position
 		if(collisionX) {
 			player.setX(oldX);
 			vel.x = 0;
@@ -166,18 +195,27 @@ public class Player {
 	private void update(float delta)
 	{
 		// set horizontal movement vector component
-		if(Gdx.input.isKeyPressed(Keys.LEFT))
-			vel.x = -SPEED * delta;
-		else if(Gdx.input.isKeyPressed(Keys.RIGHT))
-			vel.x = SPEED * delta;
+		if(input.keyDown(Keys.LEFT)) {
+			vel.x = -SPEED;
+			dir.x = -1;
+		}
+		else if(input.keyDown(Keys.RIGHT)) {
+			vel.x = SPEED;
+			dir.x = 1;
+		}
 		else
 			vel.x = 0;
 
 		// try to jump
-		if(Gdx.input.isKeyPressed(Keys.SPACE) && canJump) {
-			vel.y = JUMP * delta;
+		if(input.keyDown(Keys.SPACE) && numJumps > 0 && canJump) {
+			vel.y = JUMP;
+			numJumps--;
 			canJump = false;
 		}
+		// allow double jumps if unlocked
+		else if(input.keyUp(Keys.SPACE) && doubleJumpUnlocked)
+			canJump = true;
+	
 		// check collisions and set player position
 		checkWorldCollisions(delta);
 		x = player.getX();
