@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="TheHub2;)" tilewidth="32" tileheight="32">
-  <image source="../../Dev/TheHub2;).png" width="1920" height="1024"/>
+  <image source="TheHub2;).png" width="1920" height="1024"/>
  </tileset>
  <tileset firstgid="1921" name="BSoD_in_Windows_8" tilewidth="32" tileheight="32">
-  <image source="../../Dev/BSoD_in_Windows_8.png" width="1024" height="768"/>
+  <image source="BSoD_in_Windows_8.png" width="1024" height="768"/>
  </tileset>
  <tileset firstgid="2689" name="Shades_of_light_blue" tilewidth="32" tileheight="32">
-  <image source="../../Dev/Shades_of_light_blue.png" width="900" height="900"/>
+  <image source="Shades_of_light_blue.png" width="900" height="900"/>
   <tile id="343">
    <properties>
     <property name="blocked" value=""/>
@@ -15,7 +15,7 @@
   </tile>
  </tileset>
  <tileset firstgid="3473" name="aerotiles-desktop (1)" tilewidth="32" tileheight="32">
-  <image source="../../Dev/aerotiles-desktop (1).jpg" width="615" height="390"/>
+  <image source="aerotiles-desktop (1).jpg" width="615" height="390"/>
  </tileset>
  <layer name="Tile Layer 1" width="60" height="32">
   <data encoding="base64" compression="zlib">
