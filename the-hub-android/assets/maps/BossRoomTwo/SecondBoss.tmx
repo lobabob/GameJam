@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="SecondBoss" tilewidth="32" tileheight="32">
+  <image source="SecondBoss.png" width="1920" height="1024"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+  <tile id="61">
+   <properties>
+    <property name="blocked" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+</map>

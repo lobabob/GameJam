@@ -3,7 +3,6 @@ package com.me.thehub;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
@@ -13,7 +12,6 @@ public class Boss2 {
 	
 	
 	private Animation flash;
-	private float stateTime;
 	
 	// position, movement
 	private static final int SPEED = 30;

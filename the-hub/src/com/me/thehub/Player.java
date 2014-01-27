@@ -42,7 +42,7 @@ public class Player {
 
 	// constants for player attributes
 	private static final float SPEED = 370;
-	private static final int JUMP = 580;
+	private static final int JUMP = 615;
 	private static final float GRAVITY = 1500;
 	private static final int W = 32;
 	private static final int H = 90;
@@ -59,9 +59,9 @@ public class Player {
 	public boolean canShoot = true;
 
 	// switches for ability unlocks
-	public boolean doubleJumpUnlocked = true;
-	public boolean gunUnlocked = true;
-	public boolean bikeUnlocked = true;
+	public boolean doubleJumpUnlocked = false;
+	public boolean gunUnlocked = false;
+	public boolean bikeUnlocked = false;
 
 	public Player()
 	{

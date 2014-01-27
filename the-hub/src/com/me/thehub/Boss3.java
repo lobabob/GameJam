@@ -13,7 +13,6 @@ public class Boss3 {
 	
 	// face and animation
 	private Animation faceB;
-	private Animation faceW;
 	private TextureRegion currentFrame;
 	public Rectangle hitbox;
 	private float stateTime;
@@ -48,7 +47,6 @@ public class Boss3 {
 			white[7-i] = tmp[i][1];
 		}
 		faceB = new Animation(0.5f, black);
-		faceW = new Animation(0.5f, white);
 		
 		// create platforms
 		platforms = new Rectangle[NUM_PLATFORMS];

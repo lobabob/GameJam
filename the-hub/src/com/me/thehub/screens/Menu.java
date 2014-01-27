@@ -164,7 +164,7 @@ public class Menu implements Screen {
 		if(goToPlay) {
 			goToPlay = false;
 			menuMusic.pause(menuMusic_id);
-			return Screens.LEVEL1;
+			return Screens.HUB1;
 		} else if(goToCredits) {
 			menuMusic.pause(menuMusic_id);
 			goToCredits = false;
